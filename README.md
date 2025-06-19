@@ -5,6 +5,13 @@ ensuring compatibility with GraphQL Federation. It allows you to define and reso
 identifiers for your GraphQL objects, making it easier to work with Relay and GraphQL Federation in
 your applications.
 
+For more information on the Relay Global Object Identification specification, check out:
+
+- The [Relay Global Object Identification](https://relay.dev/graphql/objectidentification.htm)
+  documentation.
+- The latter half of my talk on
+  [Building Relay Spec Compliance in Federation](https://www.youtube.com/watch?v=RZmwWgJ4LB4&list=PLLriahVS308r4-r88Skl4BmvzQXkeLJ4n).
+
 ## Installation
 
 Add this line to your application's `Gemfile`:
