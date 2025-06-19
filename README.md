@@ -10,7 +10,7 @@ your applications.
 Add this line to your application's `Gemfile`:
 
 ```ruby
-gem 'graphql_relay_identifier', require: 'graphql/relay/identifier/global_object_identifier'
+gem 'graphql_relay_identifier'
 ```
 
 And then execute:
