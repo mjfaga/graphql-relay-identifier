@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Ruby ${{ matrix.ruby }} - Build
     strategy:
       matrix:
         ruby:
@@ -18,10 +18,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+
       - name: Run the default task
         run: bundle exec rake
+
+  rubocop:
+    runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby }} - Rubocop
+    strategy:
+      matrix:
+        ruby:
+          - '3.4.4'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Run rubocop
+        run: bundle exec rubocop
