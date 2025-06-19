@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "graphql/relay/identifier"
+require "graphql/relay/identifier/global_object_identifier"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

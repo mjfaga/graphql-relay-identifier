@@ -47,3 +47,23 @@ jobs:
 
       - name: Run rubocop
         run: bundle exec rubocop
+
+  test:
+    runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby }} - Test
+    strategy:
+      matrix:
+        ruby:
+          - '3.4.4'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Run Rspec
+        run: bundle exec rspec

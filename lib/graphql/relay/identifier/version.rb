@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Graphql
+module GraphQL
   module Relay
     module Identifier
       VERSION = "0.1.0"

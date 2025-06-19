@@ -1,0 +1,42 @@
+module GraphQL
+  module Relay
+    module Identifier
+      class GlobalObjectIdentifier
+        # Class methods
+        def self.add_identifier: (String klass, *Symbol | Hash[Symbol, Array[Symbol] | Symbol] attribute_names) -> Identifier
+        def self.from_relay_id: (String node_id) -> untyped
+        def self.parse: (String node_id) -> Identifier?
+        def self.remove_identifier: (String klass) -> void
+        def self.to_relay_id: (untyped object, untyped type) -> String
+        def self.unsafe_to_relay_id: (untyped object, graphql_name: String, object_class_name: String) -> String
+
+        private
+        def self.identifiers: () -> Hash[String, Identifier]
+        def self.identifiers=: (Hash[String, Identifier]) -> void
+
+        # Identifier class
+        class Identifier
+          # Class methods
+          def self.attribute_names: () -> Array[Symbol]
+          def self.attribute_names=: (Array[Symbol]) -> void
+          def self.version: () -> Integer
+          def self.version=: (Integer) -> void
+          def self.virtual_attribute_names: () -> Array[Symbol]
+          def self.virtual_attribute_names=: (Array[Symbol]) -> void
+          def self.klass: () -> String
+          def self.klass=: (String) -> void
+          def self.as_json: (untyped object) -> Hash[Symbol | String, untyped]
+          def self.build_for: (String klass, *Symbol | Hash[Symbol, Array[Symbol] | Symbol]) -> Identifier
+          def self.define_attribute_methods: () -> void
+          def self.remove_for: (String klass) -> void
+
+          # Instance methods
+          def initialize: (Hash[String, untyped] hash) -> void
+          def attributes: () -> Hash[Symbol, untyped]
+          def find: () -> untyped
+          def virtual_attributes: () -> Hash[Symbol, untyped]
+        end
+      end
+    end
+  end
+end

@@ -4,38 +4,39 @@ require_relative "lib/graphql/relay/identifier/version"
 
 Gem::Specification.new do |spec|
   spec.name = "graphql_relay_identifier"
-  spec.version = Graphql::Relay::Identifier::VERSION
+  spec.version = GraphQL::Relay::Identifier::VERSION
   spec.authors = ["Mark Faga"]
   spec.email = ["mjfaga@gmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = "A GraphQL Relay Global Object Identification implementation for Ruby that is Federation compatible."
+  spec.description = "This gem provides an implementation the Relay Global Object Identification specification in Ruby, ensuring compatibility with GraphQL Federation. It allows you to define and resolve global identifiers for your GraphQL objects, making it easier to work with Relay and Federation in your applications."
+  spec.homepage = "https://github.com/mjfaga/graphql_relay_identifier"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.1.0"
+  spec.required_ruby_version = ">= 3.1"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/mjfaga/graphql_relay_identifier"
+  spec.metadata["changelog_uri"] = "https://github.com/mjfaga/graphql_relay_identifier/blob/main/CHANGELOG.md"
+  spec.metadata["bug_tracker_uri"] = "https://github.com/mjfaga/graphql_relay_identifier/issues"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  gemspec = File.basename(__FILE__)
+  File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
-    ls.readlines("\x0", chomp: true).reject do |f|
-      (f == gemspec) ||
-        f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
+    ls.readlines("\x0", chomp: true).select do |f|
+      f.start_with?(*%w[lib/ sig/ CHANGELOG.md LICENSE README.md])
     end
   end
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency "graphql", "~> 2.0"
 
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "rubocop", "~> 1.21"
+  spec.add_development_dependency "rubocop-rspec"
 end
