@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/graphql_relay_identifier.svg)](https://badge.fury.io/rb/graphql_relay_identifier)
+[![Build](https://github.com/mjfaga/graphql_relay_identifier/actions/workflows/main.yml/badge.svg)](https://github.com/mjfaga/graphql_relay_identifier/actions/workflows/main.yml)
+
 # GraphQL::Relay::Identifier
 
 This gem provides an implementation the Relay Global Object Identification specification in Ruby,
