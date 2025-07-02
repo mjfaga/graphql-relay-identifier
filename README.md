@@ -13,7 +13,7 @@ For more information on the Relay Global Object Identification specification, ch
 - The [Relay Global Object Identification](https://relay.dev/graphql/objectidentification.htm)
   documentation.
 - The latter half of my talk on
-  [Building Relay Spec Compliance in Federation](https://www.youtube.com/watch?v=RZmwWgJ4LB4&list=PLLriahVS308r4-r88Skl4BmvzQXkeLJ4n).
+  [Building Relay Spec Compliance in Federation](https://www.apollographql.com/events/building-relay-spec-compliance-in-federation).
 
 ## Installation
 
